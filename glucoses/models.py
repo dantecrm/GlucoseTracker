@@ -2,9 +2,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from core.models import TimeStampedModel
+from django.core.validators import MinValueValidator, MaxValueValidator
+from taggit.managers import TaggableManager
 
 class Glucose(TimeStampedModel):
-    # objects = GlucoseManager()       #Intanciación
+    # objects = GlucoseManager()
 
     user = models.ForeignKey(User)
     value = models.PositiveIntegerField(validators=[MaxValueValidator(54054),
