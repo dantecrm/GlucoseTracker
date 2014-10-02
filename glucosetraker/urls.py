@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'project_name.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^grappelli/', include('grappelli.urls')),
+#    url(r'^accounts/', include('accounts.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

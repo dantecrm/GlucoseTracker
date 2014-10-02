@@ -49,13 +49,16 @@ CACHES = {
 INSTALLED_APPS += (
     'debug_toolbar.apps.DebugToolbarConfig',
     'taggit',
+    'django_extensions',
     'core',
     'accounts',
     'glucoses',
+    'axes',
 )
 
 MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'axes.middleware.FailedLoginMiddleware',
 )
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
