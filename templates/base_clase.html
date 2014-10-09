@@ -1,0 +1,173 @@
+{% load compress %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>{% block title %} {{ site_name }} | Aplicacion simple que Administra Glucosa {% endblock title %}</title>
+
+        <!-- CSS -->
+        {% compress css %}
+        <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        {% block extracss %} {% endblock %}
+        {% endcompress %}
+
+        <!-- Add custom CSS here -->
+        {% block customcss %}
+            <style>
+                body {padding-bottom: 40px;}
+            </style>
+        {% endblock %}
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="#">
+                  <span class="glyphicon glyphicon-tint"></span> GlucoseTracker</a>
+
+            
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  {% if user.is_authenticated %}
+                    <li><a href="#">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;New Glucose</a>
+                    </li>
+
+                    <li><a href="#">
+                        <span class="glyphicon glyphicon-th"></span>&nbsp;Dashboard</a>
+                    </li>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                         <span class="glyphicon glyphicon-stats"></span>&nbsp;Reports <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Filter Data</a></li>
+                      <li><a href="#">Charts & Graphs</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Email Report</a></li>
+                    </ul>
+                    </li>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;
+                               <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Account Settings</a></li>
+                      <li><a href="#">Change Password</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Import Data from CSV</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Help</a></li>
+                      <li class="divider"></li>
+                      <li><a href="">Log Out</a></li>
+                    </ul>
+                    </li>
+                    {% else %}
+                    <form class="navbar-form navbar-right">
+                    <button type="button" class="btn btn-primary"
+                        onclick="location.href=&quot;{% url 'login' %}&quot;;">
+                        Log In</button>
+                    <button type="button" class="btn btn-success"
+                        onclick="location.href=&quot;#&quot;;">
+                        Sign Up (Free!)</button>
+                    </form>
+                    {% endif %}
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container -->
+        </nav>
+
+        {% block content %}
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-12">
+                <div class="page-header">
+
+                </div>
+
+            </div>
+          </div>
+        </div><!-- /.container -->
+        {% endblock %}
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="container">
+                <footer>
+                  <p class="pull-right"><a href="#">Back to top</a></p>
+                  <p class="text-muted">
+                      &copy; 2014 GlucoseTracker by <ahref="http://www.algo.com">danterrc</a>
+                      | <a href="#">Blog</a>
+                      | <a href="https://www.facebook.com/">About GlucoseTracker</a>
+                      | <a href="mailto:info@algo.com">Contact Us</a>
+                  </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        {% compress js %}
+        <script src="jquery/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="momentjs/moment.min.js"></script>
+        <script src="datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+
+        <!-- Asynchronous Google Analytics snippet. mathiasbynens.be/notes/async-analytics-snippet -->
+        <script>
+            var _gaq=[['_setAccount','{{ google_analytics_tracking_id }}'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <!-- Intercom.io script for user tracking. -->
+        <script id="IntercomSettingsScriptTag">
+          window.intercomSettings = {
+            name: "{{ user }}",
+            email: "{{ user.email }}",
+            created_at: {{ user.date_joined|date:'U' }},
+            app_id: "{{ intercom_app_id }}"
+          };
+        </script>
+        <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://static.intercomcdn.com/intercom.v1.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+       
+
+        <!-- Disable submit buttons after click to prevent multiple submissions. -->
+        <script type="text/javascript">
+            $(function () {
+                $('form').submit(function(){
+                    $(this).find('input[type=submit]').prop('disabled', true);
+                });
+            });
+        </script>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ addthis_publisher_id }}"></script>
+        {% endcompress %}
+    </body>
+</html>

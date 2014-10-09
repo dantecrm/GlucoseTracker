@@ -186,6 +186,7 @@ DJANGO_APPS = (
     # Admin panel and documentation:
     'grappelli',
     'django.contrib.admin',
+    'compressor',
     # 'django.contrib.admindocs',
 )
 # En LOCAL_APPS se pondran todas las aplicaciones creadas por el usuario.

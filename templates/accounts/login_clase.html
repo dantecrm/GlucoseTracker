@@ -1,0 +1,33 @@
+{% extends "base_clase.html" %}
+
+{% block extracss %}
+<link href="{{ STATIC_URL }}bootstrap/css/signin.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+
+
+<div class="container">
+  <form class="form-signin" name="loginform" action="{% url 'login' %}" method="post">
+
+
+      <input type="hidden" name="next" value="{{ next }}" />
+
+    <h2 class="form-signin-heading">Inicie sesión</h2>
+    <input type="text" id="username" name="username" class="form-control"
+           placeholder="Nombre de usuario" required autofocus>
+    <input type="password" id="password" name="password" class="form-control"
+           placeholder="Contraseña" required>
+
+    <!-- <p class="text-danger"> -->
+    <!--     Lo sentimos, ese inicio de sesión no es válido. Por favor, inténtelo de nuevo. -->       
+    <!-- </p> -->
+
+    <input type="submit" name="submit" value="Log In" class="btn btn-lg btn-primary btn-block"/>
+    <br>
+    <p class="text-right">
+        <a href="#">Forgot Password?</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

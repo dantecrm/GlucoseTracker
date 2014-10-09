@@ -3,6 +3,7 @@ ULOGGINGqU
 SECRET_KEYqUSTATIC_ROOTqU	TIME_ZONEqUDJANGO_ROOTqUWSGI_APPLICATIONqUALLOWED_HOSTSqUTEMPLATE_DIRSqU	SITE_NAMEqUSTATICFILES_FINDERSqU	SITE_ROOTqU
 STATIC_URLqUUSE_L10NqUDEBUGqUUSE_TZqUINSTALLED_APPSqUDATABASEqU
 MEDIA_ROOTqUSTATICFILES_DIRSqUDJANGO_APPSqUADMINSqUTEMPLATE_DEBUGq U
-LOCAL_APPSq!ULANGUAJE_CODEq"U	MEDIA_URLq#eUaccounts.forms]q$(URegistrationFormq%U	LoginFormq&eUglucosetraker.urls]q'Uurlpatternsq(aU'glucosetraker.configuracion.development]q)(UDEBUG_TOOLBAR_PATCH_SETTINGSq*UEMAIL_BACKENDq+UTEMPLATE_DEBUGq,U	DATABASESq-UDEBUGq.UINTERNAL_IPSq/UCACHESq0eUglucoses.models]q1(UCategoryq2UUnitq3UGlucoseq4eUaccounts.urls]q5Uurlpatternsq6aUaccounts.views]q7(UAccountRegistrationq8UProfileq9ULoginRequestq:ULogoutRequestq;eUaccounts.models]q<(UAccountq=UUserSettingsq>eUcore.models]q?UTimeStampedModelq@aUglucoses.admin]Uaccounts.tests]qAU
-SimpleTestqBaU
+LOCAL_APPSq!ULANGUAJE_CODEq"U	MEDIA_URLq#eUaccounts.forms]q$(URegistrationFormq%U	LoginFormq&eUglucosetraker.urls]q'Uurlpatternsq(aU'glucosetraker.configuracion.development]q)(UDEBUG_TOOLBAR_PATCH_SETTINGSq*UEMAIL_BACKENDq+h U	DATABASESq,hUINTERNAL_IPSq-UCACHESq.eUglucoses.models]q/(UCategoryq0UUnitq1UGlucoseq2eUaccounts.urls]q3Uurlpatternsq4aUaccounts.views]q5U
+login_viewq6aUaccounts.models]q7(UAccountq8UUserSettingsq9eUcore.models]q:UTimeStampedModelq;aUglucoses.admin]Uaccounts.tests]q<U
+SimpleTestq=aU
 core.admin]u.
