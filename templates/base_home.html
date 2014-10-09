@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% load i18n %}
+
+<html lang="es">
+  <head>
+    <title>{% block title %}GlucoseTracker{% endblock title %}</title>
+    <meta charset="utf-8"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    maximun-scale=1" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/style_1.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/login.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/default.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/file-upload.css' %}"/>
+    <!-- <style type="text/css"> -->
+    <!--         .row-fluid .span4 { font-size: 14px;} -->
+    <!-- </style> -->
+    <!-- <script src="{% static 'bootstrap/js/jquery.js' %}"></script> -->
+    <!-- <script src="{% static 'bootstrap/js/jquery.kumbiaphp.js' %}"></script> -->
+    <!-- <script src="{% static 'bootstrap/js/var.js' %}"></script> -->
+   </head>  
+
+  <body style="padding-top: 40px !important; font-family: Play,Lucila,Verdana,sans-serif;">
+      <div class="navbar navbar-fixed-top user-nav">
+      <!-- <nav class="navbar navbar-inverse" role="navigation"> -->
+            {% include "header.html" %}
+        </div>
+
+        <div id="dw-shell-load">
+            <div id="dw-shell-content" class="container-fluid">
+
+
+        {% block content %}
+
+        {% endblock content %}
+      </div>
+    </div> <!-- /dw-shell-load -->
+
+
+    <!--
+    ================================================== 
+    <footer class="footer">
+      <div class="containerx">
+        <div class="row-fluid" >
+                <div class="span2"> 
+
+                    <span class="label label-success">Submit Consulting</span>
+                </div>
+                <div class="span2" style="vertical-align: middle;">
+                    <span class="label label-success">Iglesia Adventista del 7mo Día</span>
+                  </div>
+                <div class="span2">
+                    <span class="label label-success">Universidad Peruana Unión</span>
+                </div>
+                <div class="span2" >
+                    <span class="label label-success">EAP Ing. Sistemas - UPeU Juliaca</span>
+                </div>
+                <div class="span2" >
+                    <span class="label label-success">Grupo Innop</span>
+                </div>
+        </div>
+       </div>
+    </footer>
+    -->
+    
+    
+  </body>
+</html>

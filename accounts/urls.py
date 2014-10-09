@@ -5,10 +5,13 @@ from django.conf import settings
 from django.views.generic import TemplateView
 
 from django.contrib import admin
+admin.autodiscover()
 
 # Se esta instanciando del urls.py del proyecto
 urlpatterns = patterns('',
-    url(r'^login/$',view=login_view, name='login'),
+    url(r'^register/$', 'accounts.views.AccountRegistration'),
+    url(r'^login/$', 'accounts.views.LoginRequest'),
+    url(r'^logout/$', 'accounts.views.LogoutRequest'),
 
 )
 

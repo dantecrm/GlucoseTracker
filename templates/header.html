@@ -1,0 +1,20 @@
+{% load staticfiles %}
+{% load i18n %}
+
+  <div class="navbar-inner">
+      <div class="container">
+          <div class="row-fluid" >
+              <!-- <div style="position: absolute;"</div> -->
+              <div style="vertical-align: middle; position: relative; top:15px">
+                  <a href="/"  class="" ><i class="glyphicon glyphicon-tint"></i>GlucoseTracker</a> 
+              </div>
+              <div class="pull-right"  style="position: relative; top:-10px" >
+                  <a href="/accounts/login/"  class="btn dw-spinner  btn-info dw-text-bold" ><i class="glyphicon glyphicon-eye-open"></i> <span class="hidden-phone">{% trans 'Log in' %}</span></a>
+                  <a href="/accounts/signup/"  class="btn dw-spinner btn-success
+                      dw-text-bold"><i class="glyphicon glyphicon-user"></i> <span
+                          class="hidden-phone">{% trans 'Sign up' %}</span></a>
+              </div>
+          </div>
+      </div>
+  </div>
+

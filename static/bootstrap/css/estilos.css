@@ -44,7 +44,7 @@
 
 /* Header */
 .Header{
-    background-image: url("../images/portada.jpg");
+    background-image: url("../../bootstrap/images/portada.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -117,7 +117,7 @@
 /* Footer */
 
 .Footer{
-    background-image: url("../images/footer.jpg");
+    background-image: url("../../bootstrap/images/footer.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
