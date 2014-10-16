@@ -1,8 +1,11 @@
 # coding: utf-8
 from django.shortcuts import render_to_response, render, get_object_or_404
+from django.views.generic import  FormView
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 from axes.decorators import watch_login
+from django.conf import settings
+from .forms import SignUpForm
 
 from accounts.forms import RegistrationForm, LoginForm
 from accounts.models import Account
@@ -40,63 +43,30 @@ def login_view(request):
                               {'login_failed':login_failed},
                               context_instance = RequestContext(request))
 
-# def AccountRegistration(request):
-#     if request.user.is_authenticated():
-#         return HttpResponseRedirect('/profile/')
-#     if request.method == 'POST':
-#         form = RegistrationForm(request.POST)
-#         if form.is_valid():
-#             user = User.objects.create_user(username=form.cleaned_data['username'], email = form.cleaned_data['email'], password = form.cleaned_data['password'])
-#             user.save()
-#             account = Account(user=user, name=form.cleaned_data['name'], birthday=form.cleaned_data['birthday'])
-#             account.save()
-#             return HttpResponseRedirect('/profile/')
-#         else:
-#             return render_to_response('accounts/register.html', {'form': form}, context_instance=RequestContext(request))
-#     else:
-#         ''' user is not submitting the form, show them a blank registration form '''
-#         form = RegistrationForm()
-#         context = {'form': form}
-#         return render_to_response('accounts/register.html', context, context_instance=RequestContext(request))
 
+class SignUpView(FormView):
+    success_url = '/dashboard/'
+    form_class = SignUpForm
+    template_name = 'accounts/signup.html'
 
-# @login_required
-# def Profile(request):
-#     if not request.user.is_authenticated():
-#         return HrttpResponseRedirect('/login/')
-#     account = request.user.get_profile
-#     context = {'account': account}
-#     return render_to_response('accounts/profile.html', context, context_instance=RequestContext(request))
+    def get_initial(self):
+        # Forzando salida
+        logout(self.request)
 
+        return {'time_zone': settings.TIME_ZONE}
 
-# def LoginRequest(request):
-# 	if request.user.is_authenticated():
-# 		return HttpResponseRedirect('/profile/')
-# 	if request.method == 'POST':
-# 		form = LoginForm(request.POST)
-# 		if form.is_valid():
-# 			username = form.cleaned_data['username']
-# 			password = form.cleaned_data['password']
-# 			account = authenticate(username=username, password=password)
-# 			if account is not None:
-# 				login(request, account)
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        form.full_clean()
 
+        if form.is_valid():
+            username = form.cleaned_data['username'].replace(' ', '').lower()
+            password = form.cleaned:data['password']
 
-# 				#cargando permisos de datos para el usuario
-# 				request.session['id'] = "Hola"
-# 				return HttpResponseRedirect('/profile/')
-# 			else:
-# 				return render_to_response('accounts/login_2.html', {'form': form}, context_instance=RequestContext(request))
-# 		else:
-
-# 			return render_to_response('accounts/login_2.html', {'form': form}, context_instance=RequestContext(request))
-# 	else:
-# 		''' user is not submitting the form, show the login form '''
-# 		form = LoginForm()
-# 		context = {'form': form}
-# 		return render_to_response('accounts/login_2.html', context, context_instance=RequestContext(request))
-
-
-# def LogoutRequest(request):
-# 	logout(request)
-# 	return HttpResponseRedirect('/')
+            user = User.objects.create(username=username)
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.email = form.cleaned_data['email']
+            user.set_password(password)
+            user.save()

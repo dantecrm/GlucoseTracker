@@ -1,0 +1,10 @@
+{% extends 'base_clase.html' %}
+{% block heading %}
+<h3>
+    <span class="glyphicon glyphicon-check"></span>
+</h3>
+{% endblock %}
+{% load crispy_form_tags %}
+{% block content %}
+{% crispy form %}
+{% endblock %}
