@@ -1,10 +1,10 @@
-€}q(Uaccounts.admin]q(UUserProfileInlineqUUserSettingsAdminqU	UserAdminqeUaccounts.tests]qU
-SimpleTestqaUaccounts.forms]q(URegistrationFormq	U	LoginFormq
+€}q(Uaccounts.admin]q(UUserProfileInlineqUUserSettingsAdminqU	UserAdminqeUgactividades.models]qUHacerqaUaccounts.forms]q(URegistrationFormq	U	LoginFormq
 eUglucosetraker.urls]qUurlpatternsqaU'glucosetraker.configuracion.development]q(UDEBUG_TOOLBAR_PATCH_SETTINGSqUEMAIL_BACKENDqUTEMPLATE_DEBUGqU	DATABASESqUDEBUGqUINTERNAL_IPSqUCACHESqeUglucoses.models]q(UCategoryqUUnitqUGlucoseqeUaccounts.urls]qUurlpatternsqaUaccounts.views]q(U
 SignUpViewqU
-login_viewqeUaccounts.models]q(UAccountqUUserSettingsq eUcore.models]q!UTimeStampedModelq"aUglucoses.admin]U glucosetraker.configuracion.base]q#(UMANAGERSq$UROOT_URLCONFq%UMIDDLEWARE_CLASSESq&UUSE_I18Nq'ULOGGINGq(U
-SECRET_KEYq)USTATIC_ROOTq*U	TIME_ZONEq+UDJANGO_ROOTq,UWSGI_APPLICATIONq-UALLOWED_HOSTSq.UTEMPLATE_DIRSq/U	SITE_NAMEq0USTATICFILES_FINDERSq1U	SITE_ROOTq2U
-STATIC_URLq3UUSE_L10Nq4UDEBUGq5UUSE_TZq6UINSTALLED_APPSq7UDATABASEq8U
-MEDIA_ROOTq9USTATICFILES_DIRSq:UDJANGO_APPSq;UADMINSq<UTEMPLATE_DEBUGq=U
-LOCAL_APPSq>ULANGUAJE_CODEq?U	MEDIA_URLq@eU
-core.admin]u.
+login_viewqeUaccounts.tests]qU
+SimpleTestqaUaccounts.models]q (UAccountq!UUserSettingsq"eUcore.models]q#UTimeStampedModelq$aUglucoses.admin]U glucosetraker.configuracion.base]q%(UMANAGERSq&UROOT_URLCONFq'UMIDDLEWARE_CLASSESq(UUSE_I18Nq)ULOGGINGq*U
+SECRET_KEYq+USTATIC_ROOTq,U	TIME_ZONEq-UDJANGO_ROOTq.UWSGI_APPLICATIONq/UALLOWED_HOSTSq0UTEMPLATE_DIRSq1U	SITE_NAMEq2USTATICFILES_FINDERSq3U	SITE_ROOTq4U
+STATIC_URLq5UUSE_L10Nq6UDEBUGq7UUSE_TZq8UINSTALLED_APPSq9UDATABASEq:U
+MEDIA_ROOTq;USTATICFILES_DIRSq<UDJANGO_APPSq=UADMINSq>UTEMPLATE_DEBUGq?U
+LOCAL_APPSq@ULANGUAJE_CODEqAU	MEDIA_URLqBeU
+core.admin]Ugactividades.views]qC(U	HacerListqDUHacerUpdateqEUHacerDeleteqFUHacerCreateqGUlistarqHeu.
